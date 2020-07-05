@@ -1,0 +1,30 @@
+.heading-primary{
+    color:$color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 5rem;
+    &--main{
+        display: block;
+        font-size: 6rem;
+        font-weight:400;
+        letter-spacing: 3rem;
+        animation:moveleft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+    &--sub{
+        display:block;
+        letter-spacing: 1.9rem;
+        font-size:2rem;
+        font-weight: 700;
+        animation:moveright 1s ease-out;
+    }
+}
+body{
+    font-family: "Lato",sans-serif;
+    /* font-size: 16px; */
+    color:$color-dark-gray;
+    line-height: 1.7;
+    font-weight:400;
+    padding:3rem;
+}
