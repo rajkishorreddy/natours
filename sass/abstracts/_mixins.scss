@@ -5,3 +5,44 @@
         display: table;
     }
 }
+@mixin abscenter{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+
+
+//MEDIA QUARY MANAGER
+/*
+O-600PX:   PHONE
+600-900:  TABLET PORTRAIT
+900-1200:  TABLET LANDSCAPE
+1200-1800; is where normal styles apply (desktop first)
+1800+    ;Big desktop*/
+/*
+$breakpoint argument choises
+-phone
+-tab-port
+-tab-land
+-big-desktop
+order:base+typo+general layout+grid +page layout+components
+
+*/
+@mixin respond($breakpoint) {//em's are best for media quaries 
+    @if $breakpoint == phone{  //if we tries to print out the page then this media quaries wont work
+        @media only screen and (max-width:37.5em){@content;} //600px 1em=16px
+    }
+    @if $breakpoint == tab-port{
+        @media  only screen and (max-width:56.25em){@content;}//900px
+    }
+    @if $breakpoint == tab-land{
+        @media  only screen and (max-width:75em){@content;}//1200px
+    }
+    @if $breakpoint == big-desktop{        //1800+
+        @media  only screen and (min-width:112.5em){@content;}//only happend if greater tha n
+    }
+} 

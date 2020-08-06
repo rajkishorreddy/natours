@@ -1,4 +1,5 @@
 .btn{
+    &, //this is for simple<button> cause it is not in link or visited sta
     &:link,
     &:visited{
         text-decoration: none;
@@ -9,6 +10,10 @@
         transition: all .2s;
         position: relative;
         font-size:1.8rem;
+
+        //change for the <button>element
+        border:none;
+        cursor: pointer;
     }
     &:hover{
         transform: translateY(-.3rem);
@@ -18,15 +23,24 @@
             opacity:0;
         }
     }
-    &:active{
+    &:active,
+    &:focus{  ///focus is to remove border to <button> tag when active to not apply border
         transform: translateY(-.1rem);
         box-shadow: 0 .5rem 1rem rgba($color-black,0.2);
+        outline:none; //for <button> tag
     }
     &--white{
         background-color: $color-white;
         color: $color-dark-gray;
         &::after{
-            background-color: #fff;
+            background-color: $color-white;
+        }
+    }
+    &--green{
+        background-color: $color-primary;
+        color: $color-white;
+        &::after{
+            background-color: $color-primary;
         }
     }
     &--animated{
@@ -45,4 +59,28 @@
         z-index: -1;
         transition:all .4s;
     }  
+}
+.btn-text{
+    &:link,
+    &:visited{
+        color: $color-primary;
+        display:inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        font-size: $default-font-size;
+        transition: all .2s;
+    }
+    &:hover{
+        background-color: $color-primary;
+        color:$color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+        transform:translateY(-2px);
+
+    }
+    &:active{
+        box-shadow: 0 .5rem 1rem rgba($color-black,0.2);
+        transform:translateY(-0px);
+    }
+
 }
